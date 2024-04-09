@@ -28,6 +28,7 @@
         <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <dynamic.datasource.version>4.3.0</dynamic.datasource.version>
         <druid.version>1.2.21</druid.version>
+        <freemarker.version>2.3.32</freemarker.version>
 
         <!-- 持久层 -->
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
@@ -51,6 +52,17 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
             <version>${mybatis-plus.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+        <!-- freemarker -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
         </dependency>
         <!-- 多数据库框架dynamic-datasource -->
         <dependency>
