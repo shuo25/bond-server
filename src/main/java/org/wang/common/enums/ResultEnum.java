@@ -7,21 +7,19 @@ package org.wang.common.enums;
  */
 public enum  ResultEnum {
     SC_OK_200(200, "操作成功"),
-    UNkNOWN_ACCOUNT(1,"用户不存在"),
+    BAD_REQUEST(400, "失败的请求"),
 
-    PARAM_ERROR(2, "参数不正确"),
+    UNAUTHORIZED(401, "未授权"),
 
-    ACCOUNT_EXIST(3,"该账号已存在"),
+    FORBIDDEN(403, "禁止访问"),
 
-    USERNAME_OR_PASSWORD_ERROR(4,"用户名或密码错误"),
+    NOT_FOUND(404, "请求找不到"),
 
-    ACCOUNT_DISABLE(5,"账号已被禁用"),
+    NOT_ACCEPTABLE(406, "不可访问"),
 
-    AUTH_ERROR(6,"账户验证失败"),
+    CONFLICT(409, "冲突"),
 
-    NOT_LOGIN(7,"未登录"),
-
-    NOT_PERMSSION(8,"您没有访问该功能的权限");
+    ERROR(500, "服务发生异常");
 
     private Integer code;
 

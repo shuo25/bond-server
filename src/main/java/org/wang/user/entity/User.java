@@ -44,11 +44,11 @@ public class User implements Serializable {
     /**
      * 性别
      * */
-    private String gender;
+    private Integer gender;
     /**
      * 是否启用
      * */
-    private String enabled;
+    private Integer enabled;
 
     /**
      * 上次登录时间

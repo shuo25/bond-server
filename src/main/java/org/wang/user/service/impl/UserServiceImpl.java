@@ -33,7 +33,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         /*判断该账号是否存在*/
         if(this.findByAccount(user.getUsername()) != null){
             log.error(user.getUsername() + "已经存在！");
-            return Result.error(ResultEnum.ACCOUNT_EXIST.getCode(),ResultEnum.ACCOUNT_EXIST.getMessage());
         }
 
         baseMapper.insert(user);

@@ -3,6 +3,7 @@ package org.wang.common.response;
 import lombok.Data;
 import org.wang.common.constant.CommonConstant;
 import org.wang.common.enums.ResultEnum;
+import org.wang.common.exception.BaseException;
 
 /**
  * Author: 18615
@@ -51,6 +52,15 @@ public class Result<T> {
         r.setSuccess(true);
         r.setCode(code);
         r.setMessage(message);
+        r.setData(null);
+        return r;
+    }
+
+    public static<T> Result<T> error(ResultEnum responseCode, Exception e) {
+        Result<T> r = new Result<T>();
+        r.setSuccess(true);
+        r.setCode(responseCode.getCode());
+        r.setMessage(e.getMessage());
         r.setData(null);
         return r;
     }
