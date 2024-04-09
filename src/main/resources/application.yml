@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: BodyBond
+  profiles:
+    active: '@profile.name@'

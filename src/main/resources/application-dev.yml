@@ -1,0 +1,37 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /bond-server
+spring:
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为 master
+      strict: false # 设置严格模式，当数据源找不到时，是否抛出异常，默认为false不抛出
+      datasource:
+        master: # 主库
+          url: jdbc:mysql://127.0.0.1:3306/bady_bond?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+#mybatis plus 设置
+mybatis-plus:
+  mapper-locations: classpath*:org/example/**/xml/*Mapper.xml
+  global-config:
+    # 关闭MP3.0自带的banner
+    banner: false
+    db-config:
+      #主键类型  0:"数据库ID自增",1:"该类型为未设置主键类型", 2:"用户输入ID",3:"全局唯一ID (数字类型唯一ID)", 4:"全局唯一ID UUID",5:"字符串全局唯一ID (idWorker 的字符串表示)";
+      id-type: ASSIGN_ID
+      # 默认数据库表下划线命名
+      table-underline: true
+      #全局的 entity 的逻辑删除字段属性名,(逻辑删除下有效)
+      logic-delete-field: delFlag
+      #逻辑已删除值,(逻辑删除下有效)
+      logic-delete-value: 1
+      #逻辑未删除值,(逻辑删除下有效)
+      logic-not-delete-value: 0
+  configuration:
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 返回类型为Map,显示null对应的字段
+    call-setters-on-nulls: true
