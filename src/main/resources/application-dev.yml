@@ -39,3 +39,7 @@ mybatis-plus:
 logging:
   level:
     com.hexadecimal: debug
+
+# openaikey
+openai:
+  apiKey: 'you api key'
