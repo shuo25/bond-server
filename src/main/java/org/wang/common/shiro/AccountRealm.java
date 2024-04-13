@@ -10,12 +10,14 @@ import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.wang.common.enums.ResultEnum;
 import org.wang.common.exception.BaseException;
 import org.wang.user.entity.User;
 import org.wang.user.service.IUserService;
+import org.wang.user.vo.LoginUser;
 
 /**
  * Author: 18615
@@ -56,12 +58,14 @@ public class AccountRealm extends AuthorizingRealm {
         if (user.getEnabled() != 0) {
             throw new BaseException(ResultEnum.BAD_REQUEST, "用户被锁定");
         }
+        LoginUser loginUser = new LoginUser();
+        BeanUtils.copyProperties(user, loginUser);
 
         Claims claims = jwtUtil.getClaimsByToken(jwt);
         if (jwtUtil.isTokenExpired(claims.getExpiration())) {
             throw new BaseException(ResultEnum.BAD_REQUEST, "token过期，请重新登录");
         }
-        return new SimpleAuthenticationInfo(user, jwt, getName());
+        return new SimpleAuthenticationInfo(loginUser, jwt, getName());
     }
 
     /**
