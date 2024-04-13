@@ -47,6 +47,7 @@ public class LoginController {
         response.setHeader("Access-control-Expost-Headers", JwtUtil.HEADER);
         Map<String, String> map = new HashMap<>();
         map.put("token", token);
+        map.put("refreshToken", token);
         return Result.ok(map);
     }
 

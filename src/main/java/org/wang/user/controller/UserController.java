@@ -5,10 +5,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
+import org.apache.shiro.SecurityUtils;
 import org.wang.common.response.Result;
 import org.wang.user.entity.User;
 import org.wang.user.service.IUserService;
 import org.springframework.web.bind.annotation.*;
+import org.wang.user.vo.LoginUser;
 
 /**
  * Author: ws
@@ -73,5 +75,14 @@ public class UserController {
         return Result.ok(user);
     }
 
+    /**
+     * 根据token获取用户信息
+     * @param request 请求头
+     * */
+    @GetMapping(value = "/by_token")
+    public Result<LoginUser> getUserByToken(HttpServletRequest request){
+        LoginUser user = (LoginUser) SecurityUtils.getSubject().getPrincipal();
+        return Result.ok(user);
+    }
 
 }
