@@ -21,7 +21,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <bond.version>1.0-SNAPSHOT</bond.version>
-        <java.version>1.17</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- 数据库驱动 -->
