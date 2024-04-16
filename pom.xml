@@ -152,6 +152,15 @@
             <version>${openai.version}</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <!-- 配置当前项目的jdk版本信息 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
     <!-- 环境 -->
     <profiles>
         <!-- 开发 -->
